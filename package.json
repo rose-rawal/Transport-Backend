@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon index.ja",
+    "dev":"nodemon index.js",
     "build":"npm i"
   },
   "author": "",
