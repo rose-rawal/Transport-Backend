@@ -15,7 +15,7 @@ async function allUser(req,res){
     const users=await userSchema.find()
     return res.json(users);
 }
-router.post('/allUser',allUser)
+router.get('/allUser',allUser)
 
 async function findUser(req,res){
     const {Name,Password}=req.body
