@@ -4,6 +4,7 @@ import cors from 'cors';
 import http from 'http'
 import dotenv from 'dotenv'
 import router from './routes/index.js';
+import carRouter from './routes/carroute.js';
 //Initialization
 dotenv.config();
 const {MONGO_PROD,PORT}=process.env;
@@ -14,7 +15,7 @@ app.get('/',(req,res)=>{
     return res.json("Hello world")
 })
 app.use('/',router)
-
+app.use('/car',carRouter)
 
 //Connect DataBase
 mongoose.connect(MONGO_PROD)

@@ -4,10 +4,15 @@ import userSchema from "../models/userSchema.js";
 
 async function setUser(req,res){
     const {Name,Password,Email,Age}=req.body
+    const alreadyUser=await userSchema.find({Name})
+    if(!alreadyUser.length==0) return res.json({err:"already user"})
+    else{
     const added= await userSchema.create({
         ...req.body
     })
-    return res.json(added)
+    
+    return res.json({...added,message:'success'})
+    }
 }
 router.post('/setUser',setUser)
 
