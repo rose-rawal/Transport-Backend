@@ -19,6 +19,8 @@ app.use('/',router)
 app.use('/car',carRouter)
 app.post('/khalti-api',async(req,res)=>{
     const payload=req.body;
+    // console.log(payload)
+    // return res.json(payload)
     const response=await axios.post('https://a.khalti.com/api/v2/epayment/initiate/',payload,{
        headers:{ Authorization: `KEY ${KHALTI_SECRET_KEY}`}
     })
@@ -33,7 +35,6 @@ app.post('/khalti-api',async(req,res)=>{
             message:'Something Went Wrong'
         })
     }
-    console.log(response)
 })
 //Connect DataBase
 mongoose.connect(MONGO_PROD)
